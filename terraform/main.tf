@@ -27,10 +27,12 @@ resource "azurerm_resource_group" "this" {
 }
 
 module "network" {
-  source = "./network"
+  depends_on = [module.database]
+  source     = "./network"
 
   resource_group_name     = azurerm_resource_group.this.name
   resource_group_location = azurerm_resource_group.this.location
+  mssql_server_id         = module.database.mssql_server_id
 }
 
 module "computing" {

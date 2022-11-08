@@ -37,7 +37,7 @@ resource "azurerm_subnet" "subnet2" {
 #   name                = "mssql-endpoint"
 #   location            = var.resource_group_location
 #   resource_group_name = var.resource_group_name
-#   subnet_id           = azurerm_virtual_network.this.subnet.*.id[0]
+#   subnet_id           = azurerm_subnet.subnet1.id
 
 #   private_service_connection {
 #     name                           = "mssql-connection"

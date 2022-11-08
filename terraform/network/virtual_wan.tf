@@ -46,3 +46,33 @@ resource "azurerm_point_to_site_vpn_gateway" "this" {
     }
   }
 }
+
+resource "azurerm_virtual_hub_connection" "app_vnet" {
+  name                      = "app_vnet"
+  virtual_hub_id            = azurerm_virtual_hub.this.id
+  remote_virtual_network_id = azurerm_virtual_network.this.id
+}
+
+resource "azurerm_virtual_hub_route_table_route" "vpn_to_app_vnet" {
+  route_table_id = azurerm_virtual_hub.this.default_route_table_id
+
+  name              = "app-route"
+  destinations_type = "CIDR"
+  destinations      = ["10.0.0.0/16"]
+  next_hop_type     = "ResourceId"
+  next_hop          = azurerm_virtual_hub_connection.app_vnet.id
+}
+
+# resource "azurerm_virtual_hub_route_table" "vpn_to_app_net" {
+#   name           = "vpn-app"
+#   virtual_hub_id = azurerm_virtual_hub.this.id
+#   labels         = ["default"]
+
+#   route {
+#     name              = "route"
+#     destinations_type = "CIDR"
+#     destinations      = ["10.0.0.0/16"]
+#     next_hop_type     = "ResourceId"
+#     next_hop          = azurerm_virtual_hub_connection.app_vnet.id
+#   }
+# }
