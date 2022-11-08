@@ -1,0 +1,84 @@
+<mxfile host="65bd71144e">
+    <diagram id="vA8y2eTUlRboXU0FeAt3" name="Page-1">
+        <mxGraphModel dx="3304" dy="397" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="16" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;fillColor=none;strokeColor=#3399FF;strokeWidth=2;" vertex="1" parent="1">
+                    <mxGeometry x="-710" y="630" width="390" height="360" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="SQL Database" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=16;image=img/lib/azure2/databases/SQL_Server.svg;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="194" y="765" width="68" height="68" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" style="edgeStyle=none;html=1;fontSize=16;sourcePerimeterSpacing=30;targetPerimeterSpacing=30;strokeWidth=3;" edge="1" parent="1" source="3">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="170.00000000000045" y="799.5000000000002" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3" value="Database Migration Service" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=16;image=img/lib/azure2/databases/Azure_Database_Migration_Services.svg;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="-10" y="611" width="64" height="69" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" style="edgeStyle=none;html=1;fontSize=16;sourcePerimeterSpacing=30;targetPerimeterSpacing=30;strokeWidth=3;" edge="1" parent="1" source="4">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-180" y="810" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4" value="SQL Server 2012" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=16;image=img/lib/azure2/compute/Virtual_Machine.svg;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="-551" y="778" width="69" height="64" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=16;image=img/lib/azure2/networking/Firewalls.svg;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="206" y="70" width="71" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" style="edgeStyle=none;html=1;fontSize=16;startArrow=none;startFill=0;sourcePerimeterSpacing=30;targetPerimeterSpacing=30;strokeWidth=3;" edge="1" parent="1" source="7">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-590" y="610" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="Virtual WAN" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=16;image=img/lib/azure2/networking/Virtual_WANs.svg;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="-730" y="376" width="65" height="64" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=16;image=img/lib/azure2/networking/Private_Endpoint.svg;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="580" y="154" width="72" height="66" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=16;image=img/lib/azure2/networking/Private_Link_Service.svg;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="107" y="180" width="69" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=16;image=img/lib/azure2/networking/Private_Link.svg;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="300" y="280" width="72" height="66" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=16;image=img/lib/azure2/networking/Web_Application_Firewall_Policies_WAF.svg;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="-220" y="40" width="68" height="68" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=16;image=img/lib/azure2/storage/Storage_Accounts.svg;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="-120" y="159" width="65" height="52" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=16;image=img/lib/azure2/networking/Virtual_Networks.svg;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="-700" y="635" width="67" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="VPN Gateway" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=16;image=img/lib/azure2/networking/Virtual_Network_Gateways.svg;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="-590" y="635" width="39" height="51.75" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=16;image=img/lib/azure2/general/Resource_Groups.svg;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="380" y="440" width="68" height="64" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" style="edgeStyle=none;html=1;fontSize=16;sourcePerimeterSpacing=30;targetPerimeterSpacing=30;strokeWidth=3;" edge="1" parent="1" source="18">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-760" y="510" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="27" style="edgeStyle=none;html=1;fontSize=16;startArrow=classic;startFill=1;sourcePerimeterSpacing=30;targetPerimeterSpacing=30;strokeWidth=3;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-971.83" y="504" as="targetPoint"/>
+                        <mxPoint x="-971.83" y="650" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" value="VPN Client" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=16;fontStyle=1;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.client;" vertex="1" parent="1">
+                    <mxGeometry x="-1010" y="680" width="78" height="76" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="Azure Active Directory" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=16;image=img/lib/azure2/identity/Azure_Active_Directory.svg;strokeColor=#3399FF;strokeWidth=2;fillColor=none;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="-1006" y="376" width="70" height="64" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

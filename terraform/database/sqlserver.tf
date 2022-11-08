@@ -12,10 +12,10 @@ resource "azurerm_mssql_server" "this" {
 resource "azurerm_mssql_database" "this" {
   name           = "mssqlserver20221108"
   server_id      = azurerm_mssql_server.this.id
+  sku_name       = "S0"
+  max_size_gb    = 100
   collation      = "SQL_Latin1_General_CP1_CI_AS"
   license_type   = "LicenseIncluded"
-  max_size_gb    = 4
   read_scale     = false
-  sku_name       = "S0"
   zone_redundant = false
 }
