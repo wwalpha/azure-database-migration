@@ -5,6 +5,9 @@ resource "azurerm_network_security_group" "win2012" {
 }
 
 resource "azurerm_network_interface_security_group_association" "win2012" {
+  depends_on = [
+    azurerm_network_security_group.win2012
+  ]
   network_interface_id      = azurerm_network_interface.win2012.id
   network_security_group_id = azurerm_network_security_group.win2012.id
 }
@@ -16,6 +19,9 @@ resource "azurerm_network_security_group" "win2019" {
 }
 
 resource "azurerm_network_interface_security_group_association" "win2019" {
+  depends_on = [
+    azurerm_network_security_group.win2019
+  ]
   network_interface_id      = azurerm_network_interface.win2019.id
   network_security_group_id = azurerm_network_security_group.win2019.id
 }
