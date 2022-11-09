@@ -26,7 +26,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "this" {
-  name     = "DEMO_RG1"
+  name     = "DEMO_RG"
   location = "Japan East"
 }
 
@@ -35,11 +35,12 @@ module "database" {
 
   resource_group_name     = azurerm_resource_group.this.name
   resource_group_location = azurerm_resource_group.this.location
+  mssql_admin_username    = var.mssql_admin_username
+  mssql_admin_password    = var.mssql_admin_password
 }
 
 module "networking" {
-  depends_on = [module.database]
-  source     = "./networking"
+  source = "./networking"
 
   resource_group_name     = azurerm_resource_group.this.name
   resource_group_location = azurerm_resource_group.this.location
@@ -52,4 +53,6 @@ module "computing" {
   resource_group_name     = azurerm_resource_group.this.name
   resource_group_location = azurerm_resource_group.this.location
   vnet_subnets            = module.networking.vnet_subnets
+  azurevm_admin_username  = var.azurevm_admin_username
+  azurevm_admin_password  = var.azurevm_admin_password
 }
