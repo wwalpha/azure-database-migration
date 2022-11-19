@@ -34,6 +34,7 @@ resource "azurerm_resource_group" "this" {
 module "networking" {
   source = "./networking"
 
+  tenant_id               = local.tenant_id
   resource_group_name     = azurerm_resource_group.this.name
   resource_group_location = azurerm_resource_group.this.location
   suffix                  = local.suffix
@@ -56,6 +57,8 @@ module "storage" {
 
   resource_group_name     = azurerm_resource_group.this.name
   resource_group_location = azurerm_resource_group.this.location
+  sqlserver_vnet_id       = module.networking.sqlserver_vnet_id
+  sqlserver_subnet_id     = module.networking.sqlserver_subnet_id
   suffix                  = local.suffix
 }
 
@@ -68,8 +71,8 @@ module "computing" {
   azure_vm_image_database       = var.azure_vm_image_database
   azurevm_admin_username        = var.azurevm_admin_username
   azurevm_admin_password        = var.azurevm_admin_password
-  sql_server_vnet_id            = module.networking.sql_server_vnet_id
-  sql_server_subnet_id          = module.networking.sql_server_subnet_id
+  sqlserver_vnet_id             = module.networking.sqlserver_vnet_id
+  sqlserver_subnet_id           = module.networking.sqlserver_subnet_id
   suffix                        = local.suffix
 }
 

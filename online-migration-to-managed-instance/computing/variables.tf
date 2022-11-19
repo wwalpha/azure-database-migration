@@ -2,9 +2,9 @@ variable "resource_group_name" {}
 
 variable "resource_group_location" {}
 
-variable "sql_server_vnet_id" {}
+variable "sqlserver_vnet_id" {}
 
-variable "sql_server_subnet_id" {}
+variable "sqlserver_subnet_id" {}
 
 variable "azurevm_admin_username" {}
 

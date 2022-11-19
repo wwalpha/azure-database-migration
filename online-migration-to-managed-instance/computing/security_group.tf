@@ -25,7 +25,7 @@ resource "azurerm_network_interface" "database" {
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = var.sql_server_subnet_id
+    subnet_id                     = var.sqlserver_subnet_id
     private_ip_address_allocation = "Dynamic"
   }
 }
