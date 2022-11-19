@@ -38,6 +38,7 @@ module "networking" {
   resource_group_name     = azurerm_resource_group.this.name
   resource_group_location = azurerm_resource_group.this.location
   suffix                  = local.suffix
+  my_ip_address           = var.my_ip_address
 }
 
 module "database" {

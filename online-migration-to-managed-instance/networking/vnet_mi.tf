@@ -31,6 +31,20 @@ resource "azurerm_network_security_group" "database" {
   resource_group_name = var.resource_group_name
 }
 
+resource "azurerm_network_security_rule" "allow_internet" {
+  name                        = "AllowMyIpAddress"
+  priority                    = 1001
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "Tcp"
+  source_port_range           = "*"
+  destination_port_range      = "3342"
+  source_address_prefix       = var.my_ip_address
+  destination_address_prefix  = "*"
+  resource_group_name         = var.resource_group_name
+  network_security_group_name = azurerm_network_security_group.database.name
+}
+
 resource "azurerm_subnet_network_security_group_association" "this" {
   subnet_id                 = azurerm_subnet.database.id
   network_security_group_id = azurerm_network_security_group.database.id
