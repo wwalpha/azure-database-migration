@@ -1,15 +1,23 @@
-output "managed_instance_database_vnet_id" {
-  value = azurerm_virtual_network.database.id
+output "sql_managed_instance_vnet" {
+  value = azurerm_virtual_network.database
 }
 
-output "managed_instance_database_subnet_id" {
-  value = azurerm_subnet.database.id
+output "sql_managed_instance_subnet" {
+  value = azurerm_subnet.database
 }
 
-output "sqlserver_vnet_id" {
-  value = azurerm_virtual_network.sqlserver.id
+output "sqlserver_vnet" {
+  value = azurerm_virtual_network.sqlserver
 }
 
-output "sqlserver_subnet_id" {
-  value = azurerm_subnet.sqlserver.id
+output "sqlserver_subnet" {
+  value = azurerm_subnet.sqlserver
+}
+
+output "migration_vnet" {
+  value = azurerm_virtual_network.migration
+}
+
+output "migration_subnet" {
+  value = azurerm_subnet.migration
 }

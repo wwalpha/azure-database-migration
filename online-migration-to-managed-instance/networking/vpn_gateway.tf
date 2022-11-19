@@ -23,7 +23,7 @@ resource "azurerm_virtual_network_gateway" "this" {
     name                          = "GatewayConfig"
     public_ip_address_id          = azurerm_public_ip.vpngw.id
     private_ip_address_allocation = "Dynamic"
-    subnet_id                     = azurerm_subnet.sqlserver_gateway.id
+    subnet_id                     = azurerm_subnet.migration_gateway.id
   }
 
   vpn_client_configuration {

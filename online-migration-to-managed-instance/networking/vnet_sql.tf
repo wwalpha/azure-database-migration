@@ -5,13 +5,6 @@ resource "azurerm_virtual_network" "sqlserver" {
   address_space       = ["10.0.0.0/16"]
 }
 
-resource "azurerm_subnet" "sqlserver_gateway" {
-  name                 = "GatewaySubnet"
-  resource_group_name  = var.resource_group_name
-  virtual_network_name = azurerm_virtual_network.sqlserver.name
-  address_prefixes     = ["10.0.0.0/24"]
-}
-
 resource "azurerm_subnet" "sqlserver" {
   name                 = "sqlserver-${var.suffix}"
   resource_group_name  = var.resource_group_name

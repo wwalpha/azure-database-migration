@@ -44,13 +44,13 @@ module "networking" {
 module "database" {
   source = "./database"
 
-  resource_group_name     = azurerm_resource_group.this.name
-  resource_group_location = azurerm_resource_group.this.location
-  vnet_id                 = module.networking.managed_instance_database_vnet_id
-  subnet_id               = module.networking.managed_instance_database_subnet_id
-  mssql_admin_username    = var.mssql_admin_username
-  mssql_admin_password    = var.mssql_admin_password
-  suffix                  = local.suffix
+  resource_group_name            = azurerm_resource_group.this.name
+  resource_group_location        = azurerm_resource_group.this.location
+  sql_managed_instance_subnet_id = module.networking.sql_managed_instance_subnet.id
+  migration_subnet_id            = module.networking.migration_subnet.id
+  mssql_admin_username           = var.mssql_admin_username
+  mssql_admin_password           = var.mssql_admin_password
+  suffix                         = local.suffix
 }
 
 module "storage" {
@@ -58,8 +58,8 @@ module "storage" {
 
   resource_group_name     = azurerm_resource_group.this.name
   resource_group_location = azurerm_resource_group.this.location
-  sqlserver_vnet_id       = module.networking.sqlserver_vnet_id
-  sqlserver_subnet_id     = module.networking.sqlserver_subnet_id
+  sqlserver_vnet_id       = module.networking.sqlserver_vnet.id
+  sqlserver_subnet_id     = module.networking.sqlserver_subnet.id
   suffix                  = local.suffix
 }
 
@@ -72,8 +72,8 @@ module "computing" {
   azure_vm_image_database       = var.azure_vm_image_database
   azurevm_admin_username        = var.azurevm_admin_username
   azurevm_admin_password        = var.azurevm_admin_password
-  sqlserver_vnet_id             = module.networking.sqlserver_vnet_id
-  sqlserver_subnet_id           = module.networking.sqlserver_subnet_id
+  sqlserver_vnet_id             = module.networking.sqlserver_vnet.id
+  sqlserver_subnet_id           = module.networking.sqlserver_subnet.id
   suffix                        = local.suffix
 }
 
