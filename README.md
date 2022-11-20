@@ -18,7 +18,7 @@
 https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver16&tabs=ssms
 
 ## Enable TLS 1.2 for windows 2012 or before
-You can automatic configure windows with registry file([here])(./materials/enable_tls_1.2.reg), then restart os.
+You can automatic configure windows with registry file ([here](./materials/enable_tls_1.2.reg)), then restart os.
 
 ### Documents
 - [How to enable TLS 1.2 on clients](https://learn.microsoft.com/ja-jp/mem/configmgr/core/plan-design/security/enable-tls-1-2-client)
