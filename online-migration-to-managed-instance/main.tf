@@ -58,8 +58,8 @@ module "storage" {
 
   resource_group_name     = azurerm_resource_group.this.name
   resource_group_location = azurerm_resource_group.this.location
-  sqlserver_vnet_id       = module.networking.sqlserver_vnet.id
-  sqlserver_subnet_id     = module.networking.sqlserver_subnet.id
+  migration_vnet_id       = module.networking.migration_vnet.id
+  migration_subnet_id     = module.networking.migration_subnet.id
   suffix                  = local.suffix
 }
 
@@ -70,10 +70,10 @@ module "computing" {
   resource_group_location       = azurerm_resource_group.this.location
   azure_vm_image_resource_group = var.azure_vm_image_resource_group
   azure_vm_image_database       = var.azure_vm_image_database
+  azure_vm_image_self_hosted_ir = var.azure_vm_image_self_hosted_ir
   azurevm_admin_username        = var.azurevm_admin_username
   azurevm_admin_password        = var.azurevm_admin_password
-  sqlserver_vnet_id             = module.networking.sqlserver_vnet.id
   sqlserver_subnet_id           = module.networking.sqlserver_subnet.id
+  migration_subnet_id           = module.networking.migration_subnet.id
   suffix                        = local.suffix
 }
-
