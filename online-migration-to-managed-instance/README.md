@@ -5,13 +5,13 @@
 
 ## Steps
 ```
-CREATE CREDENTIAL [Backup] WITH IDENTITY = '<myStorageAccount>'  
+CREATE CREDENTIAL [https://<myStorageAccount>.blob.core.windows.net] WITH IDENTITY = '<myStorageAccount>'  
  ,SECRET = '<my_primary_access_key>'; 
 GO
 
 BACKUP DATABASE [AdventureWorks2012]
 TO URL = 'https://<myStorageAccount>.blob.core.windows.net/<myContainer>/AdventureWorks2012.bak'
-WITH CREDENTIAL = 'Backup'
+WITH CREDENTIAL = 'https://<myStorageAccount>.blob.core.windows.net'
      ,COMPRESSION
      ,STATS = 5
      ,CHECKSUM;

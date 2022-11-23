@@ -20,6 +20,10 @@ output "sqlserver_private_ip_address" {
   value = module.computing.sqlserver_private_ip_address
 }
 
+output "self_hosted_ir_private_ip_address" {
+  value = module.computing.self_hosted_ir_private_ip_address
+}
+
 # output "sql_managed_instance_name" {
 #   value = module.database.azurerm_mssql_managed_instance_name
 # }
@@ -32,3 +36,7 @@ output "sqlserver_private_ip_address" {
 #     "database.windows.net,3342",
 #   ])
 # }
+output "self_hosted_ir_auth_key" {
+  sensitive = true
+  value     = module.database.self_hosted_ir_keys["authKey1"]
+}

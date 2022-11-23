@@ -27,8 +27,8 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "this" {
   depends_on = [random_id.this]
-  name       = "online-migration-${local.suffix}"
-  location   = "Japan East"
+  name       = "${var.resource_group_name}-${local.suffix}"
+  location   = var.resource_group_location
 }
 
 module "networking" {
@@ -42,15 +42,16 @@ module "networking" {
 }
 
 module "database" {
-  source = "./database"
+  depends_on = [module.networking]
+  source     = "./database"
 
+  suffix                         = local.suffix
   resource_group_name            = azurerm_resource_group.this.name
   resource_group_location        = azurerm_resource_group.this.location
   sql_managed_instance_subnet_id = module.networking.sql_managed_instance_subnet.id
   migration_subnet_id            = module.networking.migration_subnet.id
   mssql_admin_username           = var.mssql_admin_username
   mssql_admin_password           = var.mssql_admin_password
-  suffix                         = local.suffix
 }
 
 module "storage" {

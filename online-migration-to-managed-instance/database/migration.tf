@@ -1,8 +1,24 @@
-resource "azurerm_database_migration_service" "this" {
-  name                = "dbms-${var.suffix}"
-  location            = var.resource_group_location
-  resource_group_name = var.resource_group_name
-  subnet_id           = var.migration_subnet_id
-  sku_name            = "Premium_4vCores"
+resource "null_resource" "dbms" {
+  triggers = {
+    file_content_md5 = md5(file("${path.module}/scripts/datamigration.sh"))
+  }
+
+  provisioner "local-exec" {
+    command = "sh ${path.module}/scripts/datamigration.sh"
+
+    environment = {
+      LOCATION       = var.resource_group_location
+      RESOURCE_GROUP = var.resource_group_name
+      NAME           = "dbms-${var.suffix}"
+    }
+  }
 }
 
+data "external" "shir_keys" {
+  program = ["sh", "${path.module}/scripts/list_auth_key.sh"]
+
+  query = {
+    RESOURCE_GROUP = var.resource_group_name
+    DBMS_NAME      = "dbms-${var.suffix}"
+  }
+}
