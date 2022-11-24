@@ -29,3 +29,7 @@ variable "azure_vm_image_resource_group" {
 variable "my_ip_address" {
   default = "202.32.14.177"
 }
+
+variable "is_show_shir_key" {
+  default = false
+}

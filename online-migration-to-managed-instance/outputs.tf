@@ -36,7 +36,8 @@ output "self_hosted_ir_private_ip_address" {
 #     "database.windows.net,3342",
 #   ])
 # }
+
 output "self_hosted_ir_auth_key" {
   sensitive = true
-  value     = module.database.self_hosted_ir_keys["authKey1"]
+  value     = module.database.self_hosted_ir_keys[0]["authKey1"]
 }

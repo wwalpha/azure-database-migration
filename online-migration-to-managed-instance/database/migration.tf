@@ -15,7 +15,9 @@ resource "null_resource" "dbms" {
 }
 
 data "external" "shir_keys" {
-  program = ["sh", "${path.module}/scripts/list_auth_key.sh"]
+  count      = var.is_show_shir_key ? 1 : 0
+  depends_on = [null_resource.dbms]
+  program    = ["sh", "${path.module}/scripts/list_auth_key.sh"]
 
   query = {
     RESOURCE_GROUP = var.resource_group_name

@@ -11,3 +11,5 @@ variable "mssql_admin_username" {}
 variable "mssql_admin_password" {}
 
 variable "suffix" {}
+
+variable "is_show_shir_key" {}
