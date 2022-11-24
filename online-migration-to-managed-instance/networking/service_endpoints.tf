@@ -1,8 +1,8 @@
 resource "null_resource" "service_endpoint_policy" {
   triggers = {
-    file_content_md5 = md5(file("${path.module}/scripts/sep_create.sh"))
-    resource_group   = var.resource_group_name
-    policy_name      = local.service_endpoint_storage_policy_name
+    file_content_md5    = md5(file("${path.module}/scripts/sep_create.sh"))
+    resource_group_name = var.resource_group_name
+    policy_name         = local.service_endpoint_storage_policy_name
   }
 
   provisioner "local-exec" {
@@ -10,7 +10,7 @@ resource "null_resource" "service_endpoint_policy" {
     command = "sh ${path.module}/scripts/sep_create.sh"
 
     environment = {
-      RESOURCE_GROUP     = var.resource_group_name
+      RESOURCE_GROUP     = self.triggers.resource_group_name
       POLICY_NAME        = self.triggers.policy_name
       STORAGE_ACCOUNT_ID = var.storage_account_id
     }

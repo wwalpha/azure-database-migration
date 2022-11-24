@@ -65,6 +65,7 @@ module "database" {
   migration_subnet_id            = module.networking.migration_subnet.id
   mssql_admin_username           = var.mssql_admin_username
   mssql_admin_password           = var.mssql_admin_password
+  is_show_shir_key               = var.is_show_shir_key
 }
 
 

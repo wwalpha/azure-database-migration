@@ -39,5 +39,5 @@ output "self_hosted_ir_private_ip_address" {
 
 output "self_hosted_ir_auth_key" {
   sensitive = true
-  value     = module.database.self_hosted_ir_keys[0]["authKey1"]
+  value     = module.database.self_hosted_ir_auth_key
 }

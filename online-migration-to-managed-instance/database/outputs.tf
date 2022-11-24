@@ -10,6 +10,6 @@
 #   value = split(".", azurerm_mssql_managed_instance.this.fqdn)[1]
 # }
 
-output "self_hosted_ir_keys" {
-  value = data.external.shir_keys.result
+output "self_hosted_ir_auth_key" {
+  value = var.is_show_shir_key ? data.external.shir_keys[0].result["authKey1"] : null
 }
