@@ -6,13 +6,16 @@ resource "azurerm_virtual_network" "database" {
 }
 
 resource "azurerm_subnet" "database" {
-  name                 = "database-${var.suffix}"
-  resource_group_name  = var.resource_group_name
-  virtual_network_name = azurerm_virtual_network.database.name
-  address_prefixes     = ["10.10.1.0/24"]
+  depends_on                  = [null_resource.service_endpoint_policy]
+  name                        = "database-${var.suffix}"
+  resource_group_name         = var.resource_group_name
+  virtual_network_name        = azurerm_virtual_network.database.name
+  address_prefixes            = ["10.10.1.0/24"]
+  service_endpoints           = ["Microsoft.Storage"]
+  service_endpoint_policy_ids = [local.service_endpoint_storage_policy_id]
 
   delegation {
-    name = "managedinstancedelegation"
+    name = "Microsoft.Sql.managedInstances"
 
     service_delegation {
       name = "Microsoft.Sql/managedInstances"

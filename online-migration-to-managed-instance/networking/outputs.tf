@@ -21,3 +21,7 @@ output "migration_vnet" {
 output "migration_subnet" {
   value = azurerm_subnet.migration
 }
+
+output "database_subnet" {
+  value = azurerm_subnet.database
+}

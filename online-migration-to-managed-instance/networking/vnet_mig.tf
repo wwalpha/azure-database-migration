@@ -17,4 +17,5 @@ resource "azurerm_subnet" "migration" {
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.migration.name
   address_prefixes     = ["10.1.1.0/24"]
+  service_endpoints    = ["Microsoft.Storage"]
 }

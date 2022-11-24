@@ -2,14 +2,14 @@ output "storage_account_name" {
   value = module.storage.storage_account.name
 }
 
-output "storage_account_blob_endpoint" {
-  value = module.storage.storage_account_container.id
-}
+# output "storage_account_blob_endpoint" {
+#   value = module.storage.storage_account_container.id
+# }
 
-output "storage_account_sas_token" {
-  sensitive = true
-  value     = split("?", module.storage.storage_account_blob_sas)[1]
-}
+# output "storage_account_sas_token" {
+#   sensitive = true
+#   value     = split("?", module.storage.storage_account_blob_sas)[1]
+# }
 
 output "storage_account_primary_access_key" {
   sensitive = true

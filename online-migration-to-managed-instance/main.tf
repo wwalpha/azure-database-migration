@@ -31,14 +31,27 @@ resource "azurerm_resource_group" "this" {
   location   = var.resource_group_location
 }
 
+module "storage" {
+  source = "./storage"
+
+  suffix                  = local.suffix
+  resource_group_name     = azurerm_resource_group.this.name
+  resource_group_location = azurerm_resource_group.this.location
+  # migration_vnet_id       = module.networking.migration_vnet.id
+  # migration_subnet_id     = module.networking.migration_subnet.id
+  # database_subnet_id      = module.networking.database_subnet.id
+}
+
 module "networking" {
-  source = "./networking"
+  depends_on = [module.storage]
+  source     = "./networking"
 
   tenant_id               = local.tenant_id
   resource_group_name     = azurerm_resource_group.this.name
   resource_group_location = azurerm_resource_group.this.location
   suffix                  = local.suffix
   my_ip_address           = var.my_ip_address
+  storage_account_id      = module.storage.storage_account.id
 }
 
 module "database" {
@@ -54,15 +67,7 @@ module "database" {
   mssql_admin_password           = var.mssql_admin_password
 }
 
-module "storage" {
-  source = "./storage"
 
-  resource_group_name     = azurerm_resource_group.this.name
-  resource_group_location = azurerm_resource_group.this.location
-  migration_vnet_id       = module.networking.migration_vnet.id
-  migration_subnet_id     = module.networking.migration_subnet.id
-  suffix                  = local.suffix
-}
 
 module "computing" {
   source = "./computing"
