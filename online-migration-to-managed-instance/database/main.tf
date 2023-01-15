@@ -12,4 +12,8 @@ resource "azurerm_mssql_managed_instance" "this" {
   storage_account_type         = "LRS"
   minimum_tls_version          = "1.2"
   public_data_endpoint_enabled = true
+
+  identity {
+    type = "SystemAssigned"
+  }
 }

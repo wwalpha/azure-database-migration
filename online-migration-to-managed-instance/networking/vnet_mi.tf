@@ -65,3 +65,9 @@ resource "azurerm_subnet_route_table_association" "database" {
   subnet_id      = azurerm_subnet.database.id
   route_table_id = azurerm_route_table.database.id
 }
+
+resource "azurerm_storage_account_network_rules" "this" {
+  storage_account_id         = var.storage_account_id
+  default_action             = "Allow"
+  virtual_network_subnet_ids = [azurerm_subnet.database.id]
+}
